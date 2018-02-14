@@ -1,0 +1,38 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "babel": "./node_modules/.bin/babel src --out-dir out",
+    "build": "npm run check && rm -rf out/ && npm run babel",
+    "check": "npm run lint && npm run flow",
+    "lint": "./node_modules/.bin/eslint src/ || true",
+    "flow": "flow; test $? -eq 0 -o $? -eq 2",
+    "babel-node": "./node_modules/.bin/babel-node src/index.js",
+    "watch": "nodemon --exec \"npm run babel-node\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "immutable": "^3.8.2",
+    "ramda": "^0.25.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.2.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "eslint-plugin-babel": "^4.1.2",
+    "eslint-plugin-flow-header": "^0.2.0",
+    "eslint-plugin-flowtype": "^2.44.0",
+    "eslint-plugin-react": "^7.6.1",
+    "flow-bin": "^0.65.0"
+  }
+}
