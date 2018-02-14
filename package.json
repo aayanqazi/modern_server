@@ -4,14 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "babel": "./node_modules/.bin/babel src --out-dir out",
     "build": "npm run check && rm -rf out/ && npm run babel",
     "check": "npm run lint && npm run flow",
     "lint": "./node_modules/.bin/eslint src/ || true",
     "flow": "flow; test $? -eq 0 -o $? -eq 2",
     "babel-node": "./node_modules/.bin/babel-node src/index.js",
-    "watch": "nodemon --exec \"npm run babel-node\""
+    "watch": "nodemon --exec \"npm run babel-node\"",
+    "test":"./node_modules/.bin/jest"
   },
   "keywords": [],
   "author": "",
@@ -33,6 +33,7 @@
     "eslint-plugin-flow-header": "^0.2.0",
     "eslint-plugin-flowtype": "^2.44.0",
     "eslint-plugin-react": "^7.6.1",
-    "flow-bin": "^0.65.0"
+    "flow-bin": "^0.65.0",
+    "jest": "^22.3.0"
   }
 }
